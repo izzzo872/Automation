@@ -1,16 +1,16 @@
 package Academy.pageObjects.nba;
 
-import Academy.resources.BasePage;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 
+
 /**
  * Created by toppa on 11/6/17.
  */
-public class NbaBasePage extends BasePage{
+public class NbaBasePage{
 
     /******************
     *
@@ -41,10 +41,12 @@ public class NbaBasePage extends BasePage{
     @FindBy (css = "a[href='/teams']")
     private WebElement teams;
 
+    public WebDriver driver;
 
     public NbaBasePage(WebDriver driver) {
-       super(driver);
-       getDriver().get("http://www.nba.com");
+        this.driver = driver;
+        openUrl("https://www.nba.com");
+
     }
 
     public WebElement getScores() {
@@ -85,5 +87,9 @@ public class NbaBasePage extends BasePage{
 
     public boolean isElementPresent(WebElement ele){
         return ele.isDisplayed();
+    }
+
+    public void openUrl(String url){
+       driver.get(url);
     }
 }

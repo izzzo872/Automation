@@ -1,27 +1,32 @@
-package Academy.Tests;
+package Academy.Tests.nba;
 
+import Academy.Tests.BaseTest;
 import Academy.pageObjects.nba.NbaBasePage;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
-import org.testng.annotations.BeforeTest;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
-import java.io.IOException;
+
 
 /**
  * Created by toppa on 11/6/17.
  */
-public class NbaHomePageTest{
-
-    WebDriver driver;
+public class NbaHomePageTest extends BaseTest{
     NbaBasePage homePage = null;
 
-    @BeforeTest
+    @BeforeMethod
     public void launchBrowser(){
-        homePage = new NbaBasePage(driver);
+        homePage = PageFactory.initElements(driver,NbaBasePage.class);
 
     }
+
+    @AfterMethod
+    public void closerDriver(){
+        driver.quit();
+    }
+
     @Test
     public void testNewsLink() {
         SoftAssert a = new SoftAssert();
