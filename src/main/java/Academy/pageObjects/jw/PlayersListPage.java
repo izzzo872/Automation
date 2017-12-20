@@ -35,7 +35,7 @@ public class PlayersListPage extends DashboardBasePage {
         super(driver);
     }
 
-    public void clickOnExamplePlayerName(){             // going to click on very top one for this test
+    public void clickOnExamplePlayerName(){
         System.out.println("clicking on example player");
         tablePlayerName.click();
     }

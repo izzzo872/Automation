@@ -29,7 +29,7 @@ public class BuildNewPlayerTest {
 
         @BeforeTest()
         public void initSetup(){
-            System.setProperty("webdriver.chrome.driver","/Users/toppa/Desktop/chromedriver");
+            System.setProperty("webdriver.chrome.driver","<your path to chrome driver>");
             driver = new ChromeDriver();
             driver.manage().deleteAllCookies();
             driver.get("https://dashboard.jwplayer.com/");
